@@ -1,0 +1,849 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dbSistemaOSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AndamentoOS">
+          <Key>
+            <PropertyRef Name="IdAndamentoOS" />
+          </Key>
+          <Property Name="IdAndamentoOS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cargo">
+          <Key>
+            <PropertyRef Name="IdCargo" />
+          </Key>
+          <Property Name="IdCargo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="IdCliente" />
+          </Key>
+          <Property Name="IdCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="CPF" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="Logradouro" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Numero" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="Bairro" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Cidade" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="CEP" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="DataNascimento" Type="date" Nullable="false" />
+          <Property Name="Sexo" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Defeito">
+          <Key>
+            <PropertyRef Name="IdDefeito" />
+          </Key>
+          <Property Name="IdDefeito" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Equipamento">
+          <Key>
+            <PropertyRef Name="IdEquipamento" />
+          </Key>
+          <Property Name="IdEquipamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdFabricanteFK" Type="int" Nullable="false" />
+          <Property Name="IdTipoEquipamento" Type="int" Nullable="false" />
+          <Property Name="Acessorios" Type="varchar" MaxLength="50" />
+          <Property Name="Modelo" Type="varchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Fabricante">
+          <Key>
+            <PropertyRef Name="IdFabricante" />
+          </Key>
+          <Property Name="IdFabricante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Funcionario">
+          <Key>
+            <PropertyRef Name="IdFuncionario" />
+          </Key>
+          <Property Name="IdFuncionario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCargoFK" Type="int" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="CPF" Type="varchar" MaxLength="14" Nullable="false" />
+          <Property Name="DataNascimento" Type="date" Nullable="false" />
+          <Property Name="Senha" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Login" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrdemServico">
+          <Key>
+            <PropertyRef Name="IdOrdemServico" />
+          </Key>
+          <Property Name="IdOrdemServico" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdClienteFK" Type="int" Nullable="false" />
+          <Property Name="IdFuncionarioFK" Type="int" Nullable="false" />
+          <Property Name="IdAndamentoOSFK" Type="int" Nullable="false" />
+          <Property Name="IdEquipamentoFK" Type="int" Nullable="false" />
+          <Property Name="IdDefeitoFK" Type="int" Nullable="false" />
+          <Property Name="OBSERVACAO" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="Servico">
+          <Key>
+            <PropertyRef Name="IdServico" />
+          </Key>
+          <Property Name="IdServico" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdTipoServicoFK" Type="int" Nullable="false" />
+          <Property Name="IdOrdemServicoFK" Type="int" Nullable="false" />
+          <Property Name="DataAbertura" Type="date" />
+          <Property Name="DataEncerramento" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Telefone">
+          <Key>
+            <PropertyRef Name="IdTelefone" />
+          </Key>
+          <Property Name="IdTelefone" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdClienteFK" Type="int" Nullable="false" />
+          <Property Name="IdTipoTelefoneFK" Type="int" Nullable="false" />
+          <Property Name="Numero" Type="varchar" MaxLength="14" />
+        </EntityType>
+        <EntityType Name="TipoEquipamento">
+          <Key>
+            <PropertyRef Name="IdTipoEquipamento" />
+          </Key>
+          <Property Name="IdTipoEquipamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoServico">
+          <Key>
+            <PropertyRef Name="IdTipoServico" />
+          </Key>
+          <Property Name="IdTipoServico" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoTelefone">
+          <Key>
+            <PropertyRef Name="IdTipoTelefone" />
+          </Key>
+          <Property Name="IdTipoTelefone" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipo" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Equipamen__IdFab__24927208">
+          <End Role="Fabricante" Type="Self.Fabricante" Multiplicity="1" />
+          <End Role="Equipamento" Type="Self.Equipamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fabricante">
+              <PropertyRef Name="IdFabricante" />
+            </Principal>
+            <Dependent Role="Equipamento">
+              <PropertyRef Name="IdFabricanteFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Equipamen__IdTip__25869641">
+          <End Role="TipoEquipamento" Type="Self.TipoEquipamento" Multiplicity="1" />
+          <End Role="Equipamento" Type="Self.Equipamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEquipamento">
+              <PropertyRef Name="IdTipoEquipamento" />
+            </Principal>
+            <Dependent Role="Equipamento">
+              <PropertyRef Name="IdTipoEquipamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Funcionar__IdCar__1A14E395">
+          <End Role="Cargo" Type="Self.Cargo" Multiplicity="1" />
+          <End Role="Funcionario" Type="Self.Funcionario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cargo">
+              <PropertyRef Name="IdCargo" />
+            </Principal>
+            <Dependent Role="Funcionario">
+              <PropertyRef Name="IdCargoFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdemServ__IdAnd__2A4B4B5E">
+          <End Role="AndamentoOS" Type="Self.AndamentoOS" Multiplicity="1" />
+          <End Role="OrdemServico" Type="Self.OrdemServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AndamentoOS">
+              <PropertyRef Name="IdAndamentoOS" />
+            </Principal>
+            <Dependent Role="OrdemServico">
+              <PropertyRef Name="IdAndamentoOSFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdemServ__IdCli__286302EC">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="OrdemServico" Type="Self.OrdemServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="OrdemServico">
+              <PropertyRef Name="IdClienteFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdemServ__IdDef__2C3393D0">
+          <End Role="Defeito" Type="Self.Defeito" Multiplicity="1" />
+          <End Role="OrdemServico" Type="Self.OrdemServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Defeito">
+              <PropertyRef Name="IdDefeito" />
+            </Principal>
+            <Dependent Role="OrdemServico">
+              <PropertyRef Name="IdDefeitoFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdemServ__IdEqu__2B3F6F97">
+          <End Role="Equipamento" Type="Self.Equipamento" Multiplicity="1" />
+          <End Role="OrdemServico" Type="Self.OrdemServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipamento">
+              <PropertyRef Name="IdEquipamento" />
+            </Principal>
+            <Dependent Role="OrdemServico">
+              <PropertyRef Name="IdEquipamentoFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdemServ__IdFun__29572725">
+          <End Role="Funcionario" Type="Self.Funcionario" Multiplicity="1" />
+          <End Role="OrdemServico" Type="Self.OrdemServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Funcionario">
+              <PropertyRef Name="IdFuncionario" />
+            </Principal>
+            <Dependent Role="OrdemServico">
+              <PropertyRef Name="IdFuncionarioFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Servico__IdOrdem__31EC6D26">
+          <End Role="OrdemServico" Type="Self.OrdemServico" Multiplicity="1" />
+          <End Role="Servico" Type="Self.Servico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrdemServico">
+              <PropertyRef Name="IdOrdemServico" />
+            </Principal>
+            <Dependent Role="Servico">
+              <PropertyRef Name="IdOrdemServicoFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Servico__IdTipoS__30F848ED">
+          <End Role="TipoServico" Type="Self.TipoServico" Multiplicity="1" />
+          <End Role="Servico" Type="Self.Servico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoServico">
+              <PropertyRef Name="IdTipoServico" />
+            </Principal>
+            <Dependent Role="Servico">
+              <PropertyRef Name="IdTipoServicoFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Telefone__IdClie__145C0A3F">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Telefone" Type="Self.Telefone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="Telefone">
+              <PropertyRef Name="IdClienteFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Telefone__IdTipo__15502E78">
+          <End Role="TipoTelefone" Type="Self.TipoTelefone" Multiplicity="1" />
+          <End Role="Telefone" Type="Self.Telefone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoTelefone">
+              <PropertyRef Name="IdTipoTelefone" />
+            </Principal>
+            <Dependent Role="Telefone">
+              <PropertyRef Name="IdTipoTelefoneFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbSistemaOSModelStoreContainer">
+          <EntitySet Name="AndamentoOS" EntityType="Self.AndamentoOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cargo" EntityType="Self.Cargo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Defeito" EntityType="Self.Defeito" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Equipamento" EntityType="Self.Equipamento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fabricante" EntityType="Self.Fabricante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Funcionario" EntityType="Self.Funcionario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrdemServico" EntityType="Self.OrdemServico" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servico" EntityType="Self.Servico" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Telefone" EntityType="Self.Telefone" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoEquipamento" EntityType="Self.TipoEquipamento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoServico" EntityType="Self.TipoServico" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoTelefone" EntityType="Self.TipoTelefone" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Equipamen__IdFab__24927208" Association="Self.FK__Equipamen__IdFab__24927208">
+            <End Role="Fabricante" EntitySet="Fabricante" />
+            <End Role="Equipamento" EntitySet="Equipamento" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Equipamen__IdTip__25869641" Association="Self.FK__Equipamen__IdTip__25869641">
+            <End Role="TipoEquipamento" EntitySet="TipoEquipamento" />
+            <End Role="Equipamento" EntitySet="Equipamento" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Funcionar__IdCar__1A14E395" Association="Self.FK__Funcionar__IdCar__1A14E395">
+            <End Role="Cargo" EntitySet="Cargo" />
+            <End Role="Funcionario" EntitySet="Funcionario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdemServ__IdAnd__2A4B4B5E" Association="Self.FK__OrdemServ__IdAnd__2A4B4B5E">
+            <End Role="AndamentoOS" EntitySet="AndamentoOS" />
+            <End Role="OrdemServico" EntitySet="OrdemServico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdemServ__IdCli__286302EC" Association="Self.FK__OrdemServ__IdCli__286302EC">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="OrdemServico" EntitySet="OrdemServico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdemServ__IdDef__2C3393D0" Association="Self.FK__OrdemServ__IdDef__2C3393D0">
+            <End Role="Defeito" EntitySet="Defeito" />
+            <End Role="OrdemServico" EntitySet="OrdemServico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdemServ__IdEqu__2B3F6F97" Association="Self.FK__OrdemServ__IdEqu__2B3F6F97">
+            <End Role="Equipamento" EntitySet="Equipamento" />
+            <End Role="OrdemServico" EntitySet="OrdemServico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdemServ__IdFun__29572725" Association="Self.FK__OrdemServ__IdFun__29572725">
+            <End Role="Funcionario" EntitySet="Funcionario" />
+            <End Role="OrdemServico" EntitySet="OrdemServico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Servico__IdOrdem__31EC6D26" Association="Self.FK__Servico__IdOrdem__31EC6D26">
+            <End Role="OrdemServico" EntitySet="OrdemServico" />
+            <End Role="Servico" EntitySet="Servico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Servico__IdTipoS__30F848ED" Association="Self.FK__Servico__IdTipoS__30F848ED">
+            <End Role="TipoServico" EntitySet="TipoServico" />
+            <End Role="Servico" EntitySet="Servico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Telefone__IdClie__145C0A3F" Association="Self.FK__Telefone__IdClie__145C0A3F">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Telefone" EntitySet="Telefone" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Telefone__IdTipo__15502E78" Association="Self.FK__Telefone__IdTipo__15502E78">
+            <End Role="TipoTelefone" EntitySet="TipoTelefone" />
+            <End Role="Telefone" EntitySet="Telefone" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbSistemaOSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AndamentoOS">
+          <Key>
+            <PropertyRef Name="IdAndamentoOS" />
+          </Key>
+          <Property Name="IdAndamentoOS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="OrdemServico" Relationship="Self.FK__OrdemServ__IdAnd__2A4B4B5E" FromRole="AndamentoOS" ToRole="OrdemServico" />
+        </EntityType>
+        <EntityType Name="Cargo">
+          <Key>
+            <PropertyRef Name="IdCargo" />
+          </Key>
+          <Property Name="IdCargo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Funcionario" Relationship="Self.FK__Funcionar__IdCar__1A14E395" FromRole="Cargo" ToRole="Funcionario" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="IdCliente" />
+          </Key>
+          <Property Name="IdCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CPF" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Logradouro" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Numero" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Bairro" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cidade" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CEP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DataNascimento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Sexo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="OrdemServico" Relationship="Self.FK__OrdemServ__IdCli__286302EC" FromRole="Cliente" ToRole="OrdemServico" />
+          <NavigationProperty Name="Telefone" Relationship="Self.FK__Telefone__IdClie__145C0A3F" FromRole="Cliente" ToRole="Telefone" />
+        </EntityType>
+        <EntityType Name="Defeito">
+          <Key>
+            <PropertyRef Name="IdDefeito" />
+          </Key>
+          <Property Name="IdDefeito" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="OrdemServico" Relationship="Self.FK__OrdemServ__IdDef__2C3393D0" FromRole="Defeito" ToRole="OrdemServico" />
+        </EntityType>
+        <EntityType Name="Equipamento">
+          <Key>
+            <PropertyRef Name="IdEquipamento" />
+          </Key>
+          <Property Name="IdEquipamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdFabricanteFK" Type="Int32" Nullable="false" />
+          <Property Name="IdTipoEquipamento" Type="Int32" Nullable="false" />
+          <Property Name="Acessorios" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Modelo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Fabricante" Relationship="Self.FK__Equipamen__IdFab__24927208" FromRole="Equipamento" ToRole="Fabricante" />
+          <NavigationProperty Name="TipoEquipamento" Relationship="Self.FK__Equipamen__IdTip__25869641" FromRole="Equipamento" ToRole="TipoEquipamento" />
+          <NavigationProperty Name="OrdemServico" Relationship="Self.FK__OrdemServ__IdEqu__2B3F6F97" FromRole="Equipamento" ToRole="OrdemServico" />
+        </EntityType>
+        <EntityType Name="Fabricante">
+          <Key>
+            <PropertyRef Name="IdFabricante" />
+          </Key>
+          <Property Name="IdFabricante" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Equipamento" Relationship="Self.FK__Equipamen__IdFab__24927208" FromRole="Fabricante" ToRole="Equipamento" />
+        </EntityType>
+        <EntityType Name="Funcionario">
+          <Key>
+            <PropertyRef Name="IdFuncionario" />
+          </Key>
+          <Property Name="IdFuncionario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCargoFK" Type="Int32" Nullable="false" />
+          <Property Name="Nome" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CPF" Type="String" MaxLength="14" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DataNascimento" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Cargo" Relationship="Self.FK__Funcionar__IdCar__1A14E395" FromRole="Funcionario" ToRole="Cargo" />
+          <NavigationProperty Name="OrdemServico" Relationship="Self.FK__OrdemServ__IdFun__29572725" FromRole="Funcionario" ToRole="OrdemServico" />
+          <Property Name="Senha" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Login" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="OrdemServico">
+          <Key>
+            <PropertyRef Name="IdOrdemServico" />
+          </Key>
+          <Property Name="IdOrdemServico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdClienteFK" Type="Int32" Nullable="false" />
+          <Property Name="IdFuncionarioFK" Type="Int32" Nullable="false" />
+          <Property Name="IdAndamentoOSFK" Type="Int32" Nullable="false" />
+          <Property Name="IdEquipamentoFK" Type="Int32" Nullable="false" />
+          <Property Name="IdDefeitoFK" Type="Int32" Nullable="false" />
+          <Property Name="OBSERVACAO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AndamentoOS" Relationship="Self.FK__OrdemServ__IdAnd__2A4B4B5E" FromRole="OrdemServico" ToRole="AndamentoOS" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__OrdemServ__IdCli__286302EC" FromRole="OrdemServico" ToRole="Cliente" />
+          <NavigationProperty Name="Defeito" Relationship="Self.FK__OrdemServ__IdDef__2C3393D0" FromRole="OrdemServico" ToRole="Defeito" />
+          <NavigationProperty Name="Equipamento" Relationship="Self.FK__OrdemServ__IdEqu__2B3F6F97" FromRole="OrdemServico" ToRole="Equipamento" />
+          <NavigationProperty Name="Funcionario" Relationship="Self.FK__OrdemServ__IdFun__29572725" FromRole="OrdemServico" ToRole="Funcionario" />
+          <NavigationProperty Name="Servico" Relationship="Self.FK__Servico__IdOrdem__31EC6D26" FromRole="OrdemServico" ToRole="Servico" />
+        </EntityType>
+        <EntityType Name="Servico">
+          <Key>
+            <PropertyRef Name="IdServico" />
+          </Key>
+          <Property Name="IdServico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdTipoServicoFK" Type="Int32" Nullable="false" />
+          <Property Name="IdOrdemServicoFK" Type="Int32" Nullable="false" />
+          <Property Name="DataAbertura" Type="DateTime" Precision="0" />
+          <Property Name="DataEncerramento" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="OrdemServico" Relationship="Self.FK__Servico__IdOrdem__31EC6D26" FromRole="Servico" ToRole="OrdemServico" />
+          <NavigationProperty Name="TipoServico" Relationship="Self.FK__Servico__IdTipoS__30F848ED" FromRole="Servico" ToRole="TipoServico" />
+        </EntityType>
+        <EntityType Name="Telefone">
+          <Key>
+            <PropertyRef Name="IdTelefone" />
+          </Key>
+          <Property Name="IdTelefone" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdClienteFK" Type="Int32" Nullable="false" />
+          <Property Name="IdTipoTelefoneFK" Type="Int32" Nullable="false" />
+          <Property Name="Numero" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Telefone__IdClie__145C0A3F" FromRole="Telefone" ToRole="Cliente" />
+          <NavigationProperty Name="TipoTelefone" Relationship="Self.FK__Telefone__IdTipo__15502E78" FromRole="Telefone" ToRole="TipoTelefone" />
+        </EntityType>
+        <EntityType Name="TipoEquipamento">
+          <Key>
+            <PropertyRef Name="IdTipoEquipamento" />
+          </Key>
+          <Property Name="IdTipoEquipamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Equipamento" Relationship="Self.FK__Equipamen__IdTip__25869641" FromRole="TipoEquipamento" ToRole="Equipamento" />
+        </EntityType>
+        <EntityType Name="TipoServico">
+          <Key>
+            <PropertyRef Name="IdTipoServico" />
+          </Key>
+          <Property Name="IdTipoServico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Servico" Relationship="Self.FK__Servico__IdTipoS__30F848ED" FromRole="TipoServico" ToRole="Servico" />
+        </EntityType>
+        <EntityType Name="TipoTelefone">
+          <Key>
+            <PropertyRef Name="IdTipoTelefone" />
+          </Key>
+          <Property Name="IdTipoTelefone" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Telefone" Relationship="Self.FK__Telefone__IdTipo__15502E78" FromRole="TipoTelefone" ToRole="Telefone" />
+        </EntityType>
+        <Association Name="FK__OrdemServ__IdAnd__2A4B4B5E">
+          <End Role="AndamentoOS" Type="Self.AndamentoOS" Multiplicity="1" />
+          <End Role="OrdemServico" Type="Self.OrdemServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AndamentoOS">
+              <PropertyRef Name="IdAndamentoOS" />
+            </Principal>
+            <Dependent Role="OrdemServico">
+              <PropertyRef Name="IdAndamentoOSFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Funcionar__IdCar__1A14E395">
+          <End Role="Cargo" Type="Self.Cargo" Multiplicity="1" />
+          <End Role="Funcionario" Type="Self.Funcionario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cargo">
+              <PropertyRef Name="IdCargo" />
+            </Principal>
+            <Dependent Role="Funcionario">
+              <PropertyRef Name="IdCargoFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdemServ__IdCli__286302EC">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="OrdemServico" Type="Self.OrdemServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="OrdemServico">
+              <PropertyRef Name="IdClienteFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Telefone__IdClie__145C0A3F">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Telefone" Type="Self.Telefone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="Telefone">
+              <PropertyRef Name="IdClienteFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdemServ__IdDef__2C3393D0">
+          <End Role="Defeito" Type="Self.Defeito" Multiplicity="1" />
+          <End Role="OrdemServico" Type="Self.OrdemServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Defeito">
+              <PropertyRef Name="IdDefeito" />
+            </Principal>
+            <Dependent Role="OrdemServico">
+              <PropertyRef Name="IdDefeitoFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Equipamen__IdFab__24927208">
+          <End Role="Fabricante" Type="Self.Fabricante" Multiplicity="1" />
+          <End Role="Equipamento" Type="Self.Equipamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fabricante">
+              <PropertyRef Name="IdFabricante" />
+            </Principal>
+            <Dependent Role="Equipamento">
+              <PropertyRef Name="IdFabricanteFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Equipamen__IdTip__25869641">
+          <End Role="TipoEquipamento" Type="Self.TipoEquipamento" Multiplicity="1" />
+          <End Role="Equipamento" Type="Self.Equipamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoEquipamento">
+              <PropertyRef Name="IdTipoEquipamento" />
+            </Principal>
+            <Dependent Role="Equipamento">
+              <PropertyRef Name="IdTipoEquipamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdemServ__IdEqu__2B3F6F97">
+          <End Role="Equipamento" Type="Self.Equipamento" Multiplicity="1" />
+          <End Role="OrdemServico" Type="Self.OrdemServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipamento">
+              <PropertyRef Name="IdEquipamento" />
+            </Principal>
+            <Dependent Role="OrdemServico">
+              <PropertyRef Name="IdEquipamentoFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrdemServ__IdFun__29572725">
+          <End Role="Funcionario" Type="Self.Funcionario" Multiplicity="1" />
+          <End Role="OrdemServico" Type="Self.OrdemServico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Funcionario">
+              <PropertyRef Name="IdFuncionario" />
+            </Principal>
+            <Dependent Role="OrdemServico">
+              <PropertyRef Name="IdFuncionarioFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Servico__IdOrdem__31EC6D26">
+          <End Role="OrdemServico" Type="Self.OrdemServico" Multiplicity="1" />
+          <End Role="Servico" Type="Self.Servico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrdemServico">
+              <PropertyRef Name="IdOrdemServico" />
+            </Principal>
+            <Dependent Role="Servico">
+              <PropertyRef Name="IdOrdemServicoFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Servico__IdTipoS__30F848ED">
+          <End Role="TipoServico" Type="Self.TipoServico" Multiplicity="1" />
+          <End Role="Servico" Type="Self.Servico" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoServico">
+              <PropertyRef Name="IdTipoServico" />
+            </Principal>
+            <Dependent Role="Servico">
+              <PropertyRef Name="IdTipoServicoFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Telefone__IdTipo__15502E78">
+          <End Role="TipoTelefone" Type="Self.TipoTelefone" Multiplicity="1" />
+          <End Role="Telefone" Type="Self.Telefone" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoTelefone">
+              <PropertyRef Name="IdTipoTelefone" />
+            </Principal>
+            <Dependent Role="Telefone">
+              <PropertyRef Name="IdTipoTelefoneFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbSistemaOSEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AndamentoOS" EntityType="Self.AndamentoOS" />
+          <EntitySet Name="Cargo" EntityType="Self.Cargo" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="Defeito" EntityType="Self.Defeito" />
+          <EntitySet Name="Equipamento" EntityType="Self.Equipamento" />
+          <EntitySet Name="Fabricante" EntityType="Self.Fabricante" />
+          <EntitySet Name="Funcionario" EntityType="Self.Funcionario" />
+          <EntitySet Name="OrdemServico" EntityType="Self.OrdemServico" />
+          <EntitySet Name="Servico" EntityType="Self.Servico" />
+          <EntitySet Name="Telefone" EntityType="Self.Telefone" />
+          <EntitySet Name="TipoEquipamento" EntityType="Self.TipoEquipamento" />
+          <EntitySet Name="TipoServico" EntityType="Self.TipoServico" />
+          <EntitySet Name="TipoTelefone" EntityType="Self.TipoTelefone" />
+          <AssociationSet Name="FK__OrdemServ__IdAnd__2A4B4B5E" Association="Self.FK__OrdemServ__IdAnd__2A4B4B5E">
+            <End Role="AndamentoOS" EntitySet="AndamentoOS" />
+            <End Role="OrdemServico" EntitySet="OrdemServico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Funcionar__IdCar__1A14E395" Association="Self.FK__Funcionar__IdCar__1A14E395">
+            <End Role="Cargo" EntitySet="Cargo" />
+            <End Role="Funcionario" EntitySet="Funcionario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdemServ__IdCli__286302EC" Association="Self.FK__OrdemServ__IdCli__286302EC">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="OrdemServico" EntitySet="OrdemServico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Telefone__IdClie__145C0A3F" Association="Self.FK__Telefone__IdClie__145C0A3F">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Telefone" EntitySet="Telefone" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdemServ__IdDef__2C3393D0" Association="Self.FK__OrdemServ__IdDef__2C3393D0">
+            <End Role="Defeito" EntitySet="Defeito" />
+            <End Role="OrdemServico" EntitySet="OrdemServico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Equipamen__IdFab__24927208" Association="Self.FK__Equipamen__IdFab__24927208">
+            <End Role="Fabricante" EntitySet="Fabricante" />
+            <End Role="Equipamento" EntitySet="Equipamento" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Equipamen__IdTip__25869641" Association="Self.FK__Equipamen__IdTip__25869641">
+            <End Role="TipoEquipamento" EntitySet="TipoEquipamento" />
+            <End Role="Equipamento" EntitySet="Equipamento" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdemServ__IdEqu__2B3F6F97" Association="Self.FK__OrdemServ__IdEqu__2B3F6F97">
+            <End Role="Equipamento" EntitySet="Equipamento" />
+            <End Role="OrdemServico" EntitySet="OrdemServico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrdemServ__IdFun__29572725" Association="Self.FK__OrdemServ__IdFun__29572725">
+            <End Role="Funcionario" EntitySet="Funcionario" />
+            <End Role="OrdemServico" EntitySet="OrdemServico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Servico__IdOrdem__31EC6D26" Association="Self.FK__Servico__IdOrdem__31EC6D26">
+            <End Role="OrdemServico" EntitySet="OrdemServico" />
+            <End Role="Servico" EntitySet="Servico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Servico__IdTipoS__30F848ED" Association="Self.FK__Servico__IdTipoS__30F848ED">
+            <End Role="TipoServico" EntitySet="TipoServico" />
+            <End Role="Servico" EntitySet="Servico" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Telefone__IdTipo__15502E78" Association="Self.FK__Telefone__IdTipo__15502E78">
+            <End Role="TipoTelefone" EntitySet="TipoTelefone" />
+            <End Role="Telefone" EntitySet="Telefone" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbSistemaOSModelStoreContainer" CdmEntityContainer="dbSistemaOSEntities1">
+          <EntitySetMapping Name="AndamentoOS">
+            <EntityTypeMapping TypeName="dbSistemaOSModel.AndamentoOS">
+              <MappingFragment StoreEntitySet="AndamentoOS">
+                <ScalarProperty Name="IdAndamentoOS" ColumnName="IdAndamentoOS" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cargo">
+            <EntityTypeMapping TypeName="dbSistemaOSModel.Cargo">
+              <MappingFragment StoreEntitySet="Cargo">
+                <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="dbSistemaOSModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="Logradouro" ColumnName="Logradouro" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+                <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="CEP" ColumnName="CEP" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DataNascimento" ColumnName="DataNascimento" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Defeito">
+            <EntityTypeMapping TypeName="dbSistemaOSModel.Defeito">
+              <MappingFragment StoreEntitySet="Defeito">
+                <ScalarProperty Name="IdDefeito" ColumnName="IdDefeito" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Equipamento">
+            <EntityTypeMapping TypeName="dbSistemaOSModel.Equipamento">
+              <MappingFragment StoreEntitySet="Equipamento">
+                <ScalarProperty Name="IdEquipamento" ColumnName="IdEquipamento" />
+                <ScalarProperty Name="IdFabricanteFK" ColumnName="IdFabricanteFK" />
+                <ScalarProperty Name="IdTipoEquipamento" ColumnName="IdTipoEquipamento" />
+                <ScalarProperty Name="Acessorios" ColumnName="Acessorios" />
+                <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fabricante">
+            <EntityTypeMapping TypeName="dbSistemaOSModel.Fabricante">
+              <MappingFragment StoreEntitySet="Fabricante">
+                <ScalarProperty Name="IdFabricante" ColumnName="IdFabricante" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Funcionario">
+            <EntityTypeMapping TypeName="dbSistemaOSModel.Funcionario">
+              <MappingFragment StoreEntitySet="Funcionario">
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Senha" ColumnName="Senha" />
+                <ScalarProperty Name="IdFuncionario" ColumnName="IdFuncionario" />
+                <ScalarProperty Name="IdCargoFK" ColumnName="IdCargoFK" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="DataNascimento" ColumnName="DataNascimento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrdemServico">
+            <EntityTypeMapping TypeName="dbSistemaOSModel.OrdemServico">
+              <MappingFragment StoreEntitySet="OrdemServico">
+                <ScalarProperty Name="IdOrdemServico" ColumnName="IdOrdemServico" />
+                <ScalarProperty Name="IdClienteFK" ColumnName="IdClienteFK" />
+                <ScalarProperty Name="IdFuncionarioFK" ColumnName="IdFuncionarioFK" />
+                <ScalarProperty Name="IdAndamentoOSFK" ColumnName="IdAndamentoOSFK" />
+                <ScalarProperty Name="IdEquipamentoFK" ColumnName="IdEquipamentoFK" />
+                <ScalarProperty Name="IdDefeitoFK" ColumnName="IdDefeitoFK" />
+                <ScalarProperty Name="OBSERVACAO" ColumnName="OBSERVACAO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servico">
+            <EntityTypeMapping TypeName="dbSistemaOSModel.Servico">
+              <MappingFragment StoreEntitySet="Servico">
+                <ScalarProperty Name="IdServico" ColumnName="IdServico" />
+                <ScalarProperty Name="IdTipoServicoFK" ColumnName="IdTipoServicoFK" />
+                <ScalarProperty Name="IdOrdemServicoFK" ColumnName="IdOrdemServicoFK" />
+                <ScalarProperty Name="DataAbertura" ColumnName="DataAbertura" />
+                <ScalarProperty Name="DataEncerramento" ColumnName="DataEncerramento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Telefone">
+            <EntityTypeMapping TypeName="dbSistemaOSModel.Telefone">
+              <MappingFragment StoreEntitySet="Telefone">
+                <ScalarProperty Name="IdTelefone" ColumnName="IdTelefone" />
+                <ScalarProperty Name="IdClienteFK" ColumnName="IdClienteFK" />
+                <ScalarProperty Name="IdTipoTelefoneFK" ColumnName="IdTipoTelefoneFK" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoEquipamento">
+            <EntityTypeMapping TypeName="dbSistemaOSModel.TipoEquipamento">
+              <MappingFragment StoreEntitySet="TipoEquipamento">
+                <ScalarProperty Name="IdTipoEquipamento" ColumnName="IdTipoEquipamento" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoServico">
+            <EntityTypeMapping TypeName="dbSistemaOSModel.TipoServico">
+              <MappingFragment StoreEntitySet="TipoServico">
+                <ScalarProperty Name="IdTipoServico" ColumnName="IdTipoServico" />
+                <ScalarProperty Name="Nome" ColumnName="Nome" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoTelefone">
+            <EntityTypeMapping TypeName="dbSistemaOSModel.TipoTelefone">
+              <MappingFragment StoreEntitySet="TipoTelefone">
+                <ScalarProperty Name="IdTipoTelefone" ColumnName="IdTipoTelefone" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
