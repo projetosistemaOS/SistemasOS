@@ -1,0 +1,66 @@
+﻿@model SistemaOSMVC.Models.OrdemServico
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OrdemServico</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OBSERVACAO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OBSERVACAO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AndamentoOS.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AndamentoOS.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Defeito.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Defeito.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Equipamento.Acessorios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Equipamento.Acessorios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Funcionario.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Funcionario.Nome)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdOrdemServico }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -11,23 +11,16 @@ namespace SistemaOSMVC.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
-    public partial class TipoTelefone
+    public partial class Servico
     {
-        public TipoTelefone()
-        {
-            this.Telefone = new HashSet<Telefone>();
-        }
+        public int IdServico { get; set; }
+        public int IdTipoServicoFK { get; set; }
+        public int IdOrdemServicoFK { get; set; }
+        public Nullable<System.DateTime> DataAbertura { get; set; }
+        public System.DateTime DataEncerramento { get; set; }
     
-        public int IdTipoTelefone { get; set; }
-
-
-        [Required(ErrorMessage = "Campo obrigatório")]
-        [Display(Name = "Tipo telefone")]
-        [StringLength(10, ErrorMessage = "No máximo 10 caracteres")]
-        public string Tipo { get; set; }
-    
-        public virtual ICollection<Telefone> Telefone { get; set; }
+        public virtual OrdemServico OrdemServico { get; set; }
+        public virtual TipoServico TipoServico { get; set; }
     }
 }

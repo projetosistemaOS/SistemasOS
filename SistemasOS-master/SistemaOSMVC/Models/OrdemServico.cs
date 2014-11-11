@@ -11,7 +11,6 @@ namespace SistemaOSMVC.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class OrdemServico
     {
@@ -21,35 +20,13 @@ namespace SistemaOSMVC.Models
         }
     
         public int IdOrdemServico { get; set; }
-
-        [Required(ErrorMessage="Campo Obrigatório")]
-        [Display(Name="Cliente")]
         public int IdClienteFK { get; set; }
-       
-        [Required(ErrorMessage = "Campo Obrigatório")]
-        [Display(Name = "Funcionario")]
         public int IdFuncionarioFK { get; set; }
-
-        [Required(ErrorMessage = "Campo Obrigatório")]
-        [Display(Name = "Andamento OS")]
         public int IdAndamentoOSFK { get; set; }
-
-        [Required(ErrorMessage = "Campo Obrigatório")]
-        [Display(Name = "Equipamento")]
         public int IdEquipamentoFK { get; set; }
-
-
-
-        [Required(ErrorMessage = "Campo Obrigatório")]
-        [Display(Name = "Defeito Apresentado")]
         public int IdDefeitoFK { get; set; }
-
-
-        [Display(Name = "Observação")]
         public string OBSERVACAO { get; set; }
     
-
-
         public virtual AndamentoOS AndamentoOS { get; set; }
         public virtual Cliente Cliente { get; set; }
         public virtual Defeito Defeito { get; set; }

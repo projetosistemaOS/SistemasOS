@@ -34,7 +34,7 @@
           <Property Name="CEP" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="50" />
           <Property Name="DataNascimento" Type="date" Nullable="false" />
-          <Property Name="Sexo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Sexo" Type="varchar" MaxLength="1" Nullable="false" />
         </EntityType>
         <EntityType Name="Defeito">
           <Key>
@@ -366,7 +366,7 @@
           <Property Name="CEP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DataNascimento" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Sexo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sexo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="OrdemServico" Relationship="Self.FK__OrdemServ__IdCli__286302EC" FromRole="Cliente" ToRole="OrdemServico" />
           <NavigationProperty Name="Telefone" Relationship="Self.FK__Telefone__IdClie__145C0A3F" FromRole="Cliente" ToRole="Telefone" />
         </EntityType>

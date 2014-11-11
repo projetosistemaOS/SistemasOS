@@ -11,13 +11,26 @@ namespace SistemaOSMVC.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Servico
     {
         public int IdServico { get; set; }
+
+        [Required(ErrorMessage = "Campo Obrigatório")]
+        [Display(Name = "Tipo de Serviço")]
         public int IdTipoServicoFK { get; set; }
+
+        [Required(ErrorMessage = "Campo Obrigatório")]
+        [Display(Name = "Ordem de Serviço")]
         public int IdOrdemServicoFK { get; set; }
+
+        [Required(ErrorMessage = "Campo Obrigatório")]
+        [Display(Name = "Data de Abertura")]
         public Nullable<System.DateTime> DataAbertura { get; set; }
+
+        [Required(ErrorMessage = "Campo Obrigatório")]
+        [Display(Name = "Data de Encerramento")]
         public System.DateTime DataEncerramento { get; set; }
     
         public virtual OrdemServico OrdemServico { get; set; }

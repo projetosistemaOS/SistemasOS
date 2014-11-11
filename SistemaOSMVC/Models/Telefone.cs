@@ -11,12 +11,26 @@ namespace SistemaOSMVC.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Telefone
     {
         public int IdTelefone { get; set; }
+
+
+        [Required(ErrorMessage = "Campo Obrigatório")]
+        [Display(Name = "Cliente")]
         public int IdClienteFK { get; set; }
+
+
+        [Required(ErrorMessage = "Campo Obrigatório")]
+        [Display(Name = "Tipo Telefone")]
         public int IdTipoTelefoneFK { get; set; }
+
+
+        [Required(ErrorMessage = "Campo Obrigatório")]
+        [Display(Name = "Numero Telefone")]
+        [StringLength(14, ErrorMessage = "No máximo 14 caracteres")]
         public string Numero { get; set; }
     
         public virtual Cliente Cliente { get; set; }

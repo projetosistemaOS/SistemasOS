@@ -1,0 +1,82 @@
+﻿@model SistemaOSMVC.Models.OrdemServico
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>OrdemServico</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.IdOrdemServico)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdClienteFK, "IdClienteFK", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IdClienteFK", String.Empty)
+                @Html.ValidationMessageFor(model => model.IdClienteFK)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdFuncionarioFK, "IdFuncionarioFK", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IdFuncionarioFK", String.Empty)
+                @Html.ValidationMessageFor(model => model.IdFuncionarioFK)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdAndamentoOSFK, "IdAndamentoOSFK", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IdAndamentoOSFK", String.Empty)
+                @Html.ValidationMessageFor(model => model.IdAndamentoOSFK)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdEquipamentoFK, "IdEquipamentoFK", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IdEquipamentoFK", String.Empty)
+                @Html.ValidationMessageFor(model => model.IdEquipamentoFK)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdDefeitoFK, "IdDefeitoFK", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("IdDefeitoFK", String.Empty)
+                @Html.ValidationMessageFor(model => model.IdDefeitoFK)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OBSERVACAO, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OBSERVACAO)
+                @Html.ValidationMessageFor(model => model.OBSERVACAO)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

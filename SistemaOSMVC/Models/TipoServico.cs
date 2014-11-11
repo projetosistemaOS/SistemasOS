@@ -11,6 +11,7 @@ namespace SistemaOSMVC.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class TipoServico
     {
@@ -20,6 +21,9 @@ namespace SistemaOSMVC.Models
         }
     
         public int IdTipoServico { get; set; }
+        [Required(ErrorMessage = "Campo obrigatório")]
+        [Display(Name = "Nome do Serviço")]
+        [StringLength(50, ErrorMessage = "No máximo 50 caracteres")]
         public string Nome { get; set; }
     
         public virtual ICollection<Servico> Servico { get; set; }

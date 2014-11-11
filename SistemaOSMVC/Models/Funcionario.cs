@@ -23,9 +23,9 @@ namespace SistemaOSMVC.Models
         public int IdCargoFK { get; set; }
         public string Nome { get; set; }
         public string CPF { get; set; }
-        public string Login { get; set; }
-        public string Senha { get; set; }
         public System.DateTime DataNascimento { get; set; }
+        public string Senha { get; set; }
+        public string Login { get; set; }
     
         public virtual Cargo Cargo { get; set; }
         public virtual ICollection<OrdemServico> OrdemServico { get; set; }

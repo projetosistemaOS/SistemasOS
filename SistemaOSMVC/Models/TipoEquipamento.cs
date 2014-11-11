@@ -11,6 +11,7 @@ namespace SistemaOSMVC.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class TipoEquipamento
     {
@@ -20,6 +21,10 @@ namespace SistemaOSMVC.Models
         }
     
         public int IdTipoEquipamento { get; set; }
+
+        [Required(ErrorMessage = "Campo obrigatório")]
+        [Display(Name = "Nome do Equipamento")]
+        [StringLength(50, ErrorMessage = "No máximo 50 caracteres")]
         public string Nome { get; set; }
     
         public virtual ICollection<Equipamento> Equipamento { get; set; }

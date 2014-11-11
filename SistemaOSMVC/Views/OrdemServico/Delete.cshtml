@@ -1,0 +1,72 @@
+﻿@model SistemaOSMVC.Models.OrdemServico
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>OrdemServico</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OBSERVACAO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OBSERVACAO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AndamentoOS.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AndamentoOS.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Defeito.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Defeito.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Equipamento.Acessorios)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Equipamento.Acessorios)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Funcionario.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Funcionario.Nome)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

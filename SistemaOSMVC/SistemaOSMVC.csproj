@@ -164,6 +164,7 @@
     <Compile Include="Controllers\AndamentoOSController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrdemServicoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -299,6 +300,11 @@
     <Content Include="Views\AndamentoOS\Details.cshtml" />
     <Content Include="Views\AndamentoOS\Edit.cshtml" />
     <Content Include="Views\AndamentoOS\Index.cshtml" />
+    <Content Include="Views\OrdemServico\Create.cshtml" />
+    <Content Include="Views\OrdemServico\Delete.cshtml" />
+    <Content Include="Views\OrdemServico\Details.cshtml" />
+    <Content Include="Views\OrdemServico\Edit.cshtml" />
+    <Content Include="Views\OrdemServico\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
