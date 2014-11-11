@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d03b530a0c46450abfd51a08fd993694" Name="Diagram1">
+        <EntityTypeShape EntityType="dbSistemaOSModel.AndamentoOS" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbSistemaOSModel.Cargo" Width="1.5" PointX="1.5" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbSistemaOSModel.Cliente" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbSistemaOSModel.Defeito" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbSistemaOSModel.Equipamento" Width="1.5" PointX="0.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbSistemaOSModel.Fabricante" Width="1.5" PointX="1.5" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbSistemaOSModel.Funcionario" Width="1.5" PointX="0.75" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbSistemaOSModel.OrdemServico" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbSistemaOSModel.Servico" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbSistemaOSModel.Telefone" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbSistemaOSModel.TipoEquipamento" Width="1.5" PointX="1.5" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbSistemaOSModel.TipoServico" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbSistemaOSModel.TipoTelefone" Width="1.5" PointX="3.75" PointY="8.625" IsExpanded="true" />
+        <AssociationConnector Association="dbSistemaOSModel.FK__OrdemServ__IdAnd__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="dbSistemaOSModel.FK__Funcionar__IdCar__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="dbSistemaOSModel.FK__OrdemServ__IdCli__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="dbSistemaOSModel.FK__Telefone__IdClie__145C0A3F" ManuallyRouted="false" />
+        <AssociationConnector Association="dbSistemaOSModel.FK__OrdemServ__IdDef__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="dbSistemaOSModel.FK__Equipamen__IdFab__24927208" ManuallyRouted="false" />
+        <AssociationConnector Association="dbSistemaOSModel.FK__Equipamen__IdTip__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="dbSistemaOSModel.FK__OrdemServ__IdEqu__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="dbSistemaOSModel.FK__OrdemServ__IdFun__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="dbSistemaOSModel.FK__Servico__IdOrdem__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="dbSistemaOSModel.FK__Servico__IdTipoS__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="dbSistemaOSModel.FK__Telefone__IdTipo__15502E78" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
