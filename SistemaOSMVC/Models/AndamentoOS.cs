@@ -19,6 +19,7 @@ namespace SistemaOSMVC.Models
             this.OrdemServico = new HashSet<OrdemServico>();
         }
     
+        
         public int IdAndamentoOS { get; set; }
         public string Nome { get; set; }
     
