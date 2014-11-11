@@ -27,14 +27,52 @@ namespace SistemaOSMVC.Models
         [Display(Name = "Nome do Cliente")]
         [StringLength(150, ErrorMessage = "No máximo 150 caracteres")]
         public string Nome { get; set; }
+
+
+        [Required(ErrorMessage = "Campo obrigatório")]
+        [Display(Name = "CPF do Cliente")]
+        [StringLength(150, ErrorMessage = "No máximo 14 caracteres")]
         public string CPF { get; set; }
+
+
+        [Required(ErrorMessage = "Campo obrigatório")]
+        [Display(Name = "Logradouro do Cliente")]
+        [StringLength(150, ErrorMessage = "No máximo 40 caracteres")]
         public string Logradouro { get; set; }
+
+        
+        [Required(ErrorMessage = "Campo obrigatório")]
+        [Display(Name = "Numero")]
+        [StringLength(150, ErrorMessage = "No máximo 6 caracteres")]
         public string Numero { get; set; }
+
+
+        [Required(ErrorMessage = "Campo obrigatório")]
+        [Display(Name = "Bairro")]
+        [StringLength(150, ErrorMessage = "No máximo 20 caracteres")]
         public string Bairro { get; set; }
+
+        [Required(ErrorMessage = "Campo obrigatório")]
+        [Display(Name = "Cidade")]
+        [StringLength(150, ErrorMessage = "No máximo 30 caracteres")]
         public string Cidade { get; set; }
+
+        [Required(ErrorMessage = "Campo obrigatório")]
+        [Display(Name = "Estado")]
+        [StringLength(150, ErrorMessage = "No máximo 2 caracteres")]
         public string Estado { get; set; }
+
+        [Required(ErrorMessage = "Campo obrigatório")]
+        [Display(Name = "Cep")]
+        [StringLength(150, ErrorMessage = "No máximo 10 caracteres")]
         public string CEP { get; set; }
+
+
+       
+        [Display(Name = "Email")]
         public string Email { get; set; }
+        
+        
         public System.DateTime DataNascimento { get; set; }
         public string Sexo { get; set; }
     
