@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="dbSistemaOSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="dbSistemaOSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AndamentoOS">
           <Key>
             <PropertyRef Name="IdAndamentoOS" />
@@ -34,7 +34,7 @@
           <Property Name="CEP" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="50" />
           <Property Name="DataNascimento" Type="date" Nullable="false" />
-          <Property Name="Sexo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Sexo" Type="varchar" MaxLength="1" Nullable="false" />
         </EntityType>
         <EntityType Name="Defeito">
           <Key>
@@ -70,7 +70,7 @@
           <Property Name="CPF" Type="varchar" MaxLength="14" Nullable="false" />
           <Property Name="DataNascimento" Type="date" Nullable="false" />
           <Property Name="Senha" Type="varchar" MaxLength="8" Nullable="false" />
-          <Property Name="Login" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Login" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="OrdemServico">
           <Key>
@@ -91,8 +91,8 @@
           <Property Name="IdServico" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdTipoServicoFK" Type="int" Nullable="false" />
           <Property Name="IdOrdemServicoFK" Type="int" Nullable="false" />
-          <Property Name="DataAbertura" Type="date" />
-          <Property Name="DataEncerramento" Type="date" Nullable="false" />
+          <Property Name="DataAbertura" Type="date" Nullable="false" />
+          <Property Name="DataEncerramento" Type="date" />
         </EntityType>
         <EntityType Name="Telefone">
           <Key>
@@ -366,7 +366,7 @@
           <Property Name="CEP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DataNascimento" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Sexo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sexo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="OrdemServico" Relationship="Self.FK__OrdemServ__IdCli__286302EC" FromRole="Cliente" ToRole="OrdemServico" />
           <NavigationProperty Name="Telefone" Relationship="Self.FK__Telefone__IdClie__145C0A3F" FromRole="Cliente" ToRole="Telefone" />
         </EntityType>
@@ -411,7 +411,7 @@
           <NavigationProperty Name="Cargo" Relationship="Self.FK__Funcionar__IdCar__1A14E395" FromRole="Funcionario" ToRole="Cargo" />
           <NavigationProperty Name="OrdemServico" Relationship="Self.FK__OrdemServ__IdFun__29572725" FromRole="Funcionario" ToRole="OrdemServico" />
           <Property Name="Senha" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
-          <Property Name="Login" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Login" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="OrdemServico">
           <Key>
@@ -438,8 +438,8 @@
           <Property Name="IdServico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdTipoServicoFK" Type="Int32" Nullable="false" />
           <Property Name="IdOrdemServicoFK" Type="Int32" Nullable="false" />
-          <Property Name="DataAbertura" Type="DateTime" Precision="0" />
-          <Property Name="DataEncerramento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DataAbertura" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="DataEncerramento" Type="DateTime" Precision="0" />
           <NavigationProperty Name="OrdemServico" Relationship="Self.FK__Servico__IdOrdem__31EC6D26" FromRole="Servico" ToRole="OrdemServico" />
           <NavigationProperty Name="TipoServico" Relationship="Self.FK__Servico__IdTipoS__30F848ED" FromRole="Servico" ToRole="TipoServico" />
         </EntityType>
